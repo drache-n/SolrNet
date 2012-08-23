@@ -496,6 +496,9 @@ namespace SolrNet.Impl {
             if (options.Grouping.Ngroups.HasValue)
                 yield return KV.Create("group.ngroups", options.Grouping.Ngroups.ToString().ToLowerInvariant());
 
+            if (options.Grouping.Facet.HasValue)
+                yield return KV.Create("group.facet", options.Grouping.Facet.ToString().ToLowerInvariant());
+
             yield return KV.Create("group.format", options.Grouping.Format.ToString().ToLowerInvariant());
         }
 
