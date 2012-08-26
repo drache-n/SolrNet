@@ -600,6 +600,19 @@ namespace SolrNet.Tests {
         }
 
         [Test]
+        public void FacetFieldWithGroupingOptions() {
+            var querySerializer = new SolrQuerySerializerStub("q");
+            var queryExecuter = new SolrQueryExecuter<TestDocument>(null, null, querySerializer, null, null);
+            var groupingQueryOptions = queryExecuter.GetGroupingQueryOptions(new QueryOptions {
+                Grouping = new GroupingParameters {
+                    Fields = new[] { "one" },
+                    Facet = true
+                }
+            }).ToList();
+            Assert.Contains(groupingQueryOptions, KV.Create("group.facet", "true"));
+        }
+
+        [Test]
         public void StatsOptions() {
             var queryExecuter = new SolrQueryExecuter<TestDocument>(null, null, null, null, null);
             var statsOptions = queryExecuter.GetStatsQueryOptions(new QueryOptions {

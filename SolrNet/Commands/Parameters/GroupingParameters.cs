@@ -86,7 +86,7 @@ namespace SolrNet.Commands.Parameters
 		public GroupingFormat Format { get; set; }
 
         /// <summary>
-        /// If true, grouped gacets are used (computed based on the first specified group)
+        /// If true, grouped facets are used (computed based on the first specified group)
         /// <see cref="http://wiki.apache.org/solr/FieldCollapsing#Request_Parameters"/>
         /// </summary>
         public bool? Facet { get; set; }
